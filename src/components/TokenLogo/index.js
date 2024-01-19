@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { isAddress } from '../../utils/index.js'
-import EosLogo from '../../assets/eth.png'
+import EosLogo from '../../assets/eos.png'
 
 const BAD_IMAGES = {}
 
@@ -71,7 +71,7 @@ export default function TokenLogo ({ address, header = false, size = '24px', ...
     )
   }
 
-  const path = `https://raw.githubusercontent.com/Nava-Labs/assets/master/blockchains/mantle/assets/${isAddress(
+  const path = `https://raw.githubusercontent.com/Nava-Labs/assets/master/blockchains/eosevm/${isAddress(
     address
   )}/logo.png`
 

@@ -4,7 +4,7 @@ import { HttpLink } from 'apollo-link-http'
 
 export const client = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://testnet.dbi.foundation/subgraphs/name/neutro-amm'
+    uri: 'https://mainnet.dbi.foundation/subgraphs/name/neutro-amm'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
@@ -12,7 +12,7 @@ export const client = new ApolloClient({
 
 export const healthClient = new ApolloClient({
   link: new HttpLink({
-    uri: 'https://testnet.dbi.foundation/index-node'
+    uri: 'https://mainnet.dbi.foundation/index-node'
   }),
   cache: new InMemoryCache(),
   shouldBatch: true
