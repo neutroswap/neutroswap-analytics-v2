@@ -71,7 +71,7 @@ export default function Warning ({ type, show, setShow, address }) {
               <Link
                 fontWeight={500}
                 lineHeight={'145.23%'}
-                color={'#F97316'}
+                color={'#FF5757'}
                 href={'https://explorer.evm.eosnetwork.com/address/' + address}
                 target='_blank'
               >
@@ -91,7 +91,7 @@ export default function Warning ({ type, show, setShow, address }) {
               <Link
                 fontWeight={500}
                 lineHeight={'145.23%'}
-                color={'#F97316'}
+                color={'#FF5757'}
                 href={'https://explorer.evm.eosnetwork.com/address/' + address}
                 target='_blank'
               >

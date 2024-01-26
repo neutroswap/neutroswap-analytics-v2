@@ -247,7 +247,6 @@ async function getGlobalData (eosPrice, oldEosPrice) {
       query: GLOBAL_DATA(),
       fetchPolicy: 'cache-first'
     })
-    console.log("results ",result);
     data = result.data.neutroFactories[0]
     // fetch the historical data
     let oneDayResult = await client.query({

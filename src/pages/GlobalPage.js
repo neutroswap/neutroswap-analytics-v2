@@ -50,7 +50,6 @@ function GlobalPage () {
   // get data for lists and totals
   const allPairs = useAllPairData()
   const allTokens = useAllTokenData()
-  console.log("all tokens ", allTokens)
   const transactions = useGlobalTransactions()
   const { totalLiquidityUSD, oneDayVolumeUSD, volumeChangeUSD, liquidityChangeUSD } = useGlobalData()
 
@@ -70,7 +69,7 @@ function GlobalPage () {
 
   return (
     <PageWrapper>
-      <ThemedBackground backgroundColor={transparentize(0.6, '#F97316')} />
+      <ThemedBackground backgroundColor={transparentize(0.6, '#FF5757')} />
       <ContentWrapper>
         <div>
           <AutoColumn gap='24px' style={{ paddingBottom: below800 ? '0' : '24px' }}>
