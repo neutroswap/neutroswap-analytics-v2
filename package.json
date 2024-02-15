@@ -90,6 +90,7 @@
   },
   "license": "GPL-3.0-or-later",
   "dependencies": {
+    "ethereum-multicall": "^2.21.0",
     "react-helmet": "^6.1.0"
   }
 }

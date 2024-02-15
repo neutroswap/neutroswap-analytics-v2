@@ -159,6 +159,20 @@ function SideNav ({ history }) {
                     Accounts
                   </Option>
                 </BasicLink>
+
+                <BasicLink to='/plugins'>
+                  <Option
+                    activeText={
+                      (history.location.pathname.split('/')[1] === 'plugins' ||
+                        history.location.pathname.split('/')[1] === 'plugins') ??
+                      undefined
+                    }
+                  >
+                    <List size={20} style={{ marginRight: '.75rem' }} />
+                    Plugins
+                  </Option>
+                </BasicLink>
+                
               </AutoColumn>
             )}
           </AutoColumn>

@@ -20,6 +20,7 @@ import LocalLoader from './components/LocalLoader'
 import { useLatestBlocks } from './contexts/Application'
 import GoogleAnalyticsReporter from './components/analytics/GoogleAnalyticsReporter'
 import { PAIR_BLACKLIST, TOKEN_BLACKLIST } from './constants'
+import Plugins from './pages/Plugins'
 
 const AppWrapper = styled.div`
   position: relative;
@@ -200,6 +201,12 @@ function App () {
               <Route path='/accounts'>
                 <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
                   <AccountLookup />
+                </LayoutWrapper>
+              </Route>
+
+              <Route path='/plugins'>
+                <LayoutWrapper savedOpen={savedOpen} setSavedOpen={setSavedOpen}>
+                  <Plugins />
                 </LayoutWrapper>
               </Route>
 
