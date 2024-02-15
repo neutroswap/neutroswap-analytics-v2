@@ -7,11 +7,12 @@ import { useMedia } from 'react-use'
 import { transparentize } from 'polished'
 import { TYPE } from '../../Theme'
 import { withRouter } from 'react-router-dom'
-import { TrendingUp, List, PieChart, Disc } from 'react-feather'
+import { TrendingUp, List, PieChart, Disc, Lock } from 'react-feather'
 import Link from '../Link'
 import { useSessionStart } from '../../contexts/Application'
 import { useDarkModeManager } from '../../contexts/LocalStorage'
 import Toggle from '../Toggle'
+import { useHistory } from 'react-router-dom'
 
 const Wrapper = styled.div`
   height: ${({ isMobile }) => (isMobile ? 'initial' : '100vh')};
@@ -99,7 +100,8 @@ const PollingDot = styled.div`
   background-color: ${({ theme }) => theme.green1};
 `
 
-function SideNav ({ history }) {
+function SideNav() {
+  const history = useHistory()
   const below1080 = useMedia('(max-width: 1080px)')
 
   const below1180 = useMedia('(max-width: 1180px)')
@@ -112,17 +114,17 @@ function SideNav ({ history }) {
     <Wrapper isMobile={below1080}>
       {!below1080 ? (
         <DesktopWrapper>
-          <AutoColumn gap='1rem' style={{ marginLeft: '.75rem', marginTop: '1.5rem' }}>
+          <AutoColumn gap="1rem" style={{ marginLeft: '.75rem', marginTop: '1.5rem' }}>
             <Title />
             {!below1080 && (
-              <AutoColumn gap='1.25rem' style={{ marginTop: '1rem' }}>
-                <BasicLink to='/home'>
+              <AutoColumn gap="1.25rem" style={{ marginTop: '1rem' }}>
+                <BasicLink to="/home">
                   <Option activeText={history.location.pathname === '/home' ?? undefined}>
                     <TrendingUp size={20} style={{ marginRight: '.75rem' }} />
                     Overview
                   </Option>
                 </BasicLink>
-                <BasicLink to='/tokens'>
+                <BasicLink to="/tokens">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'tokens' ||
@@ -134,7 +136,7 @@ function SideNav ({ history }) {
                     Tokens
                   </Option>
                 </BasicLink>
-                <BasicLink to='/pairs'>
+                <BasicLink to="/pairs">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'pairs' ||
@@ -147,7 +149,7 @@ function SideNav ({ history }) {
                   </Option>
                 </BasicLink>
 
-                <BasicLink to='/accounts'>
+                <BasicLink to="/accounts">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'accounts' ||
@@ -160,40 +162,39 @@ function SideNav ({ history }) {
                   </Option>
                 </BasicLink>
 
-                <BasicLink to='/plugins'>
+                <BasicLink to="/plugins">
                   <Option
                     activeText={
                       (history.location.pathname.split('/')[1] === 'plugins' ||
-                        history.location.pathname.split('/')[1] === 'plugins') ??
+                        history.location.pathname.split('/')[1] === 'plugin') ??
                       undefined
                     }
                   >
-                    <List size={20} style={{ marginRight: '.75rem' }} />
-                    Plugins
+                    <Lock size={20} style={{ marginRight: '.75rem' }} />
+                    xNEUTRO
                   </Option>
                 </BasicLink>
-                
               </AutoColumn>
             )}
           </AutoColumn>
-          <AutoColumn gap='0.5rem' style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
+          <AutoColumn gap="0.5rem" style={{ marginLeft: '.75rem', marginBottom: '4rem' }}>
             <HeaderText>
-              <Link href='https://neutroswap.io' target='_blank'>
+              <Link href="https://neutroswap.io" target="_blank">
                 Website
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href='https://docs.neutroswap.io/' target='_blank'>
+              <Link href="https://docs.neutroswap.io/" target="_blank">
                 Docs
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href='https://discord.com/invite/xM9dkUvPMQ' target='_blank'>
+              <Link href="https://discord.com/invite/xM9dkUvPMQ" target="_blank">
                 Discord
               </Link>
             </HeaderText>
             <HeaderText>
-              <Link href='https://twitter.com/Neutroswap' target='_blank'>
+              <Link href="https://twitter.com/Neutroswap" target="_blank">
                 Twitter
               </Link>
             </HeaderText>
@@ -202,7 +203,7 @@ function SideNav ({ history }) {
           {!below1180 && (
             <Polling style={{ marginLeft: '.5rem' }}>
               <PollingDot />
-              <a href='/' style={{ color: 'white' }}>
+              <a href="/" style={{ color: 'white' }}>
                 <TYPE.small color={'white'}>
                   Updated {!!seconds ? seconds + 's' : '-'} ago <br />
                 </TYPE.small>

@@ -39,27 +39,27 @@ const Option = styled.div`
   }
 `
 
-export default function Title () {
+export default function Title() {
   const history = useHistory()
   const below1080 = useMedia('(max-width: 1080px)')
 
   return (
     <TitleWrapper onClick={() => history.push('/')}>
-      <Flex alignItems='center' style={{ justifyContent: 'space-between' }}>
+      <Flex alignItems="center" style={{ justifyContent: 'space-between' }}>
         <RowFixed>
-          <UniIcon id='link' onClick={() => history.push('/')}>
-            <img width={'24px'} src={Logo} alt='logo' />
+          <UniIcon id="link" onClick={() => history.push('/')}>
+            <img width={'24px'} src={Logo} alt="logo" />
           </UniIcon>
           {!below1080 && (
-            <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt='logo' />
+            <img width={'84px'} style={{ marginLeft: '8px', marginTop: '0px' }} src={Wordmark} alt="logo" />
           )}
         </RowFixed>
         {below1080 && (
           <RowFixed style={{ alignItems: 'flex-end' }}>
-            <BasicLink to='/home'>
+            <BasicLink to="/home">
               <Option activeText={history.location.pathname === '/home' ?? undefined}>Overview</Option>
             </BasicLink>
-            <BasicLink to='/tokens'>
+            <BasicLink to="/tokens">
               <Option
                 activeText={
                   (history.location.pathname.split('/')[1] === 'tokens' ||
@@ -70,7 +70,7 @@ export default function Title () {
                 Tokens
               </Option>
             </BasicLink>
-            <BasicLink to='/pairs'>
+            <BasicLink to="/pairs">
               <Option
                 activeText={
                   (history.location.pathname.split('/')[1] === 'pairs' ||
@@ -82,7 +82,7 @@ export default function Title () {
               </Option>
             </BasicLink>
 
-            <BasicLink to='/accounts'>
+            <BasicLink to="/accounts">
               <Option
                 activeText={
                   (history.location.pathname.split('/')[1] === 'accounts' ||
@@ -91,6 +91,18 @@ export default function Title () {
                 }
               >
                 Accounts
+              </Option>
+            </BasicLink>
+
+            <BasicLink to="/plugins">
+              <Option
+                activeText={
+                  (history.location.pathname.split('/')[1] === 'plugins' ||
+                    history.location.pathname.split('/')[1] === 'plugin') ??
+                  undefined
+                }
+              >
+                xNEUTRO
               </Option>
             </BasicLink>
           </RowFixed>
